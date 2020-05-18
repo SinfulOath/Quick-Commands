@@ -1,0 +1,68 @@
+#Gobuster-filter Status: 200's
+
+cat Gobuster* | grep "(Status: 2" | cut -d " " -f 1-3 | tee gobuster-filter-200.txt
+
+#Gobuster-filter Status: 300's
+
+cat Gobuster* | grep "(Status: 3" | cut -d " " -f 1-3 | tee gobuster-filter-300.txt
+
+#Gobuster-filter Status: 400's
+
+cat Gobuster* | grep "(Status: 4" | cut -d " " -f 1-3 | tee gobuster-filter-400.txt
+
+#Gobuster-filter Status: 500's
+
+cat Gobuster* | grep "(Status: 5" | cut -d " " -f 1-3 | tee gobuster-filter-500.txt
+
+#Gobuster-filter txt files
+
+cat Gobuster* | grep /*.txt | tee gobuster-filter-txt.txt
+
+#Gobuster-filter php files
+
+cat Gobuster* | grep /*.php | tee gobuster-filter-php.txt
+
+#Gobuster-filter cgi files
+
+cat Gobuster* | grep /*.cgi* | tee gobuster-filter-cgi.txt
+
+#Gobuster-filter admin files
+
+cat Gobuster* | grep /*admin* | tee gobuster-filter-admin.txt
+
+#Gobuster-filter login files
+
+cat Gobuster* | grep /*login* | tee gobuster-filter-login.txt
+
+#Gobuster-filter upload files
+
+cat Gobuster* | grep /*upload* | tee gobuster-filter-upload.txt
+
+#Meg-filter Status: 200's
+
+cat index | cut -d " " -f 2-5 | grep "(2" | tee meg-filter-200.txt
+
+#Meg-filter Status: 300's
+
+cat index | cut -d " " -f 2-5 | grep "(3" | tee meg-filter-300.txt
+
+#Meg-filter Status: 400's
+
+cat index | cut -d " " -f 2-5 | grep "(4" | tee meg-filter-400.txt
+
+#Meg-filter Status: 500's
+
+cat index | cut -d " " -f 2-5 | grep "(5" | tee meg-filter-500.txt
+
+
+
+
+
+
+
+
+
+
+
+
+ 
