@@ -1,0 +1,32 @@
+#Gobuster raft-large-directories
+
+gobuster dir -u $targ -w /opt/SecLists/Discovery/Web-Content/raft-large-directories.txt -e -k -l -o Gobuster-rld-$(echo $targ | sed 's/\//_/g' | sed 's/\:/_/g').txt
+
+#Gobuster raft-large-files
+
+gobuster dir -u $targ -w /opt/SecLists/Discovery/Web-Content/raft-large-files.txt -e -k -l -o Gobuster-rlf-$(echo $targ | sed 's/\//_/g' | sed 's/\:/_/g').txt
+
+#Sitadel Scan
+
+python3 sitadel.py $targ -v --no-redirect -a ATTACK | tee Sitadel-Attack-$(echo $targ | sed 's/\//_/g' | sed 's/\:/_/g').txt
+
+#VulnX Scan
+
+python3 vulnx.py -d -w -e -l all -c all -u $targ -o VulnX-$(echo $targ | sed 's/\//_/g' | sed 's/\:/_/g').txt
+
+#Nikto Scan
+
+nikto -Cgidirs all -dbcheck -list-plugins -mutate 3 -h $targ -o nikto-intense-$(echo $targ | sed 's/\//_/g' | sed 's/\:/_/g').txt
+
+#Meg
+
+meg -v paths.txt hosts.txt meg-scan
+
+#nmap scan
+
+nslookup $targ | ./nmapAutomator.sh $targ All
+
+
+
+
+
